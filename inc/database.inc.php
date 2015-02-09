@@ -40,7 +40,7 @@ class SB_Database extends SB_ErrorHandler
         return SB_CURRENT_RELEASE;
     }
 
-    public static function & staticInstance($ignoreError=false)
+    static function & staticInstance($ignoreError=false)
     {
         static $db;
 

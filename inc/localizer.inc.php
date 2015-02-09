@@ -47,7 +47,7 @@ class SB_Localizer
         return SB_Localizer::staticInstance();
     }
 
-    public static function & staticInstance()
+    static function & staticInstance()
     {
         static $instance;
 

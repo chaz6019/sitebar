@@ -559,7 +559,7 @@ class SB_Tree extends SB_ErrorHandler
         );
     }
 
-    public static function & staticInstance()
+    static function & staticInstance()
     {
         static $tree;
 

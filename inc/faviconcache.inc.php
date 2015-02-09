@@ -36,7 +36,7 @@ class SB_FaviconCache extends SB_ErrorHandler
         $this->um =& SB_UserManager::staticInstance();
     }
 
-    public static function & staticInstance()
+    static function & staticInstance()
     {
         static $cache;
 

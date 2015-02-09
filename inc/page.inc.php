@@ -211,7 +211,7 @@ class SB_Skin extends SB_ErrorHandler
 {
     var $current = 'Modern';
 
-    public static function & staticInstance()
+    static function & staticInstance()
     {
         static $skin = null;
         if (!$skin)
@@ -222,13 +222,13 @@ class SB_Skin extends SB_ErrorHandler
         return $skin;
     }
 
-    public static function get()
+    static function get()
     {
         $i =& SB_Skin::staticInstance();
         return $i->current;
     }
 
-    public static function set($skin)
+    static function set($skin)
     {
         if ($skin)
         {
@@ -246,7 +246,7 @@ class SB_Skin extends SB_ErrorHandler
         }
     }
 
-    public static function img($filename, $prefix='', $id='', $class=null)
+    static function img($filename, $prefix='', $id='', $class=null)
     {
         $imgid = '';
 
@@ -259,7 +259,7 @@ class SB_Skin extends SB_ErrorHandler
                ' src="'. SB_Skin::imgsrc($filename) .'" alt="">';
     }
 
-    public static function imgsrc($filename)
+    static function imgsrc($filename)
     {
         return SB_Skin::webPath() . '/' . $filename . '.png';
     }
@@ -269,12 +269,12 @@ class SB_Skin extends SB_ErrorHandler
         return SB_Skin::webPath() . ($filename?'/':'') . $filename;
     }
 
-    public static function path()
+    static function path()
     {
         return 'skins/'. SB_Skin::get();
     }
 
-    public static function webPath()
+    static function webPath()
     {
         return SB_Page::cdnBaseUrl() . 'skins/'. rawurlencode(SB_Skin::get());
     }
@@ -299,7 +299,7 @@ class SB_Page extends SB_ErrorHandler
         return substr($url,0,strlen($url)-1);
     }
 
-    public static function absBaseUrl($override=null)
+    static function absBaseUrl($override=null)
     {
         static $url = null;
 
@@ -333,7 +333,7 @@ class SB_Page extends SB_ErrorHandler
         return $url;
     }
 
-    public static function cdnBaseUrl($override=null)
+    static function cdnBaseUrl($override=null)
     {
         static $url = null;
 
@@ -356,7 +356,7 @@ class SB_Page extends SB_ErrorHandler
         return $url;
     }
     
-    public static function relBaseUrl($override=null)
+    static function relBaseUrl($override=null)
     {
         static $url = null;
 
@@ -378,7 +378,7 @@ class SB_Page extends SB_ErrorHandler
         return $url;
     }
 
-    public static function isMSIE()
+    static function isMSIE()
     {
         static $isMSIE = null;
 
@@ -390,7 +390,7 @@ class SB_Page extends SB_ErrorHandler
         return $isMSIE;
     }
 
-    public static function isIPHONE()
+    static function isIPHONE()
     {
         static $isIPHONE = null;
 
@@ -403,7 +403,7 @@ class SB_Page extends SB_ErrorHandler
     }
 
     // Exclude Opera
-    public static function isOPERA()
+    static function isOPERA()
     {
         static $isOPERA = null;
 
@@ -415,7 +415,7 @@ class SB_Page extends SB_ErrorHandler
         return $isOPERA;
     }
 
-    public static function isGECKO()
+    static function isGECKO()
     {
         static $isGECKO= null;
 
@@ -427,7 +427,7 @@ class SB_Page extends SB_ErrorHandler
         return $isGECKO;
     }
 
-    public static function dragDropNode($nid)
+    static function dragDropNode($nid)
     {
         if (SB_Page::isOPERA())
         {
@@ -441,7 +441,7 @@ class SB_Page extends SB_ErrorHandler
             (SB_Page::isGECKO()?' ondragover="return SBCFF_dragOver(event)" ondrop="return SBCFF_nodeDrop(event,this.parentNode,'. $nid .')"':'');
     }
 
-    public static function dragDropLink($nid, $lid)
+    static function dragDropLink($nid, $lid)
     {
         if (SB_Page::isOPERA())
         {
@@ -455,12 +455,12 @@ class SB_Page extends SB_ErrorHandler
             (SB_Page::isGECKO()?' ondragover="return SBCFF_dragOver(event)" ondrop="return SBCFF_nodeDrop(event,this.parentNode,'. $nid .','. $lid .')"':'');
     }
 
-    public static function toolTip()
+    static function toolTip()
     {
         return ' onmouseover="SB_toolTip(this,event);" onmouseout="SB_toolTipHide();" ';
     }
 
-    public static function targetWindow()
+    static function targetWindow()
     {
         static $trg = null;
 
@@ -481,7 +481,7 @@ class SB_Page extends SB_ErrorHandler
         return $trg;
     }
 
-    public static function target($setdefault=null)
+    static function target($setdefault=null)
     {
         static $trg = null;
 
@@ -492,7 +492,7 @@ class SB_Page extends SB_ErrorHandler
         return $trg;
     }
 
-    public static function head($title, $bodyClass=null, $inscript=null, $onLoad=null, $meta=null)
+    static function head($title, $bodyClass=null, $inscript=null, $onLoad=null, $meta=null)
     {
         // Media="All" is used to hide the styles from Netscape 4.x
 
@@ -562,7 +562,7 @@ SB_gSkinDir = '<?php echo SB_Skin::webPath()?>/';
 <?php
     }
 
-    public static function quoteValue($value)
+    static function quoteValue($value)
     {
         // XML entities: &lt; &gt; &amp; &quot;
 
